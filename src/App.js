@@ -9,7 +9,7 @@ class App extends React.Component {
   componentWillMount(){
     fetch('http://13.53.131.29:8080/test')
     .then(res => res.json())
-    .then(json => this.setState({json}))
+    .then(json => this.setState({json.name}))
   }
 
 
