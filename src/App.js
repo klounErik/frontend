@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  state = {
+    greeting: null
+  }
+
+  componentWillMount(){
+    fetch('http://13.53.131.29:8080/test')
+    .then(res => res.json())
+    .then(json => this.setState({json}))
+  }
+
+
+  render(){
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>{this.state.greeting}</h1>
       </header>
     </div>
   );
+}
 }
 
 export default App;
