@@ -8,7 +8,12 @@ const PORT = 8080 || process.env.PORT
 App.use(cors())
 
 App.get('/test', (req, res) => {
-    res.send("test")
+    let json = {
+        "person": "Jan Erik",
+        "age": 27,
+        "sex": "male"
+    }
+    res.send(json)
 })
 
 App.listen(PORT, (err) => {
